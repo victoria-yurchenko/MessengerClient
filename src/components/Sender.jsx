@@ -26,6 +26,7 @@ export default function Sender({ url }) {
         let dataUrl = URL.createObjectURL(event.target.files[0]);
         let base64 = '';
         let extention = event.target.files[0].type;
+        extention = extention.substring(extention.indexOf('/') + 1, extention.length);
         setMsg({ ...msg, dataType: extention });
         imageToBase64(dataUrl)
             .then(response => base64 = response)

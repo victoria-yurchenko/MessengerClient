@@ -8,14 +8,16 @@ export default function Screen({ url }) {
 
     useEffect(() => {
         sendRequest();
-        console.log('logged' + logged)
         setInterval(sendRequest(), 50000);
     }, []);
 
     const sendRequest = () => {
         const toUrl = url + "/api/chat";
         fetch(toUrl)
-            .then(response => response.json().then(data => setMsg(data)))
+            .then(response => response.json().then(data => {
+                setMsg(data);
+                console.log(data)
+            }))
             .catch(error => console.log(error));
     }
 
@@ -28,8 +30,8 @@ export default function Screen({ url }) {
                             return (
                                 <div key={m.timestamp} className={m.from == logged ? 'msg msg-left' : 'msg msg-right'}>
                                     <p><span className={m.from == logged ? 'name name-left' : 'name name-right'}>{m.from}</span>&nbsp;{m.message}</p>
-                                    <p><img src={m.dataUrl} alt='picture' height='100' /></p>
-                                    <p className='time'><a href={m.dataUrl} >download image</a></p>
+                                    <p><img src={m.dataUrl} alt='picture' width='120' /></p>
+                                    <p className='time'><a href={m.dataUrl}>download image</a></p>
                                     <p className='time'>{m.timestamp}</p>
                                 </div>
                             )

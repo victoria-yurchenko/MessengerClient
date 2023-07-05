@@ -23,3 +23,7 @@ function App() {
 }
 
 export default App;
+
+// problems with images and files 
+// timestamp looks awful
+// sorting messages by date
