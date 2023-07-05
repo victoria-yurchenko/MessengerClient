@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-export default function Login(props) {
+export default function Login({ url }) {
 
     const [user, setUser] = useState({
         name: '',
@@ -13,7 +13,7 @@ export default function Login(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         let toSend = user;
-        const toUrl = "http://localhost:5187/api/users/login";
+        const toUrl = url + "/api/users/login";
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json; charset=utf-8' },

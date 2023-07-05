@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Sender from './Sender';
 
-export default function Screen( props ) {
+export default function Screen({ url }) {
 
     const [msg, setMsg] = useState([]);
     const [logged, setLogged] = useState(localStorage.getItem("Logged"));
@@ -13,7 +13,7 @@ export default function Screen( props ) {
     }, []);
 
     const sendRequest = () => {
-        const toUrl = props.url + "/api/chat";
+        const toUrl = url + "/api/chat";
         fetch(toUrl)
             .then(response => response.json().then(data => setMsg(data)))
             .catch(error => console.log(error));
@@ -44,7 +44,7 @@ export default function Screen( props ) {
                     })
                 }
             </div>
-            <Sender url={props.url} />
+            <Sender url={url} />
         </div>
     )
 }

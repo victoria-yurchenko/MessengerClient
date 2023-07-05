@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import imageToBase64 from 'image-to-base64/browser';
 import { useEffect } from 'react';
 
-export default function () {
+export default function ({ url }) {
 
     const [user, setUser] = useState({
         name: '',
@@ -25,13 +25,13 @@ export default function () {
     const handleSubmit = (event) => {
         event.preventDefault();
         let toSend = user;
-        const url = " http://localhost:5187/api/users";
+        const toUrl = url + "/api/users";
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json; charset=utf-8' },
             body: JSON.stringify(toSend)
         };
-        fetch(url, options)
+        fetch(toUrl, options)
             .then(response => console.log(response))
             .catch(error => console.log(error));
     }

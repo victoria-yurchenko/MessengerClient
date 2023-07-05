@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import imageToBase64 from 'image-to-base64/browser';
 
-export default function Sender(props) {
+export default function Sender({ url }) {
 
     const [msg, setMsg] = useState({ "from": "", "to": "", "message": "", "dataUrl": "", "dataType": "" });
 
@@ -11,7 +11,7 @@ export default function Sender(props) {
         event.preventDefault();
         let toSend = msg;
         toSend.from = localStorage.getItem("Logged");
-        const toUrl = props.url + "/api/chat";
+        const toUrl = url + "/api/chat";
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json; charset=utf-8' },
