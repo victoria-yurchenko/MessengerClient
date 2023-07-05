@@ -1,27 +1,58 @@
 .msg {
-  border: 3px double #61dafb;
+  border: 2px double #003345;
   border-radius: 20px;
   width: 50%;
   padding: 5px;
   margin: 10px;
+  font-size: 12pt;
+  color: #fff6e9;
+  padding: 15px;
 }
 
-.name{
-  background-color: #61dafb;
-  font-size: 12px;
+.msg-left {
+  float: left;
+  background-color: #00394c;
+
+}
+
+.msg-right {
+  float: right;
+  background-color: #005e7d;
+}
+
+.name {
+  font-size: 14pt;
   color: white;
   border-radius: 10px;
   padding: 5px;
+  padding: 5px;
   margin: 2px;
+  color: antiquewhite;
+
 }
 
-.time{
+.name-right {
+  background-color: #b93c3c;
+}
+
+.name-left {
+  background-color: #3cb95f;
+}
+
+.time {
   font-size: 12px;
-  color: blueviolet;
+  color: antiquewhite;
+
 }
 
 .main-div {
-  background-color: #ecf5ff;
-  height: 80vh;
+  background-color: #01122e;
+  height: 70vh;
   overflow: auto;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+::placeholder {
+  color: antiquewhite;
 }
